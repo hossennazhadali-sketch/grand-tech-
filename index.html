@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Tech - Custom 3D Printing & Drone Parts in Finland</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        accentBlue: '#0ea5e9',
+                        accentOrange: '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-accentBlue selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accentBlue to-accentOrange flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-accentBlue/20">
+                    GT
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Grand Tech</span>
+                    <span class="block text-xs text-accentBlue font-medium">Helsinki, Finland</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#products" class="hover:text-accentBlue transition-colors">Products</a>
+                <a href="#custom" class="hover:text-accentBlue transition-colors">Custom Printing</a>
+                <a href="#about" class="hover:text-accentBlue transition-colors">About</a>
+                <a href="#contact" class="hover:text-accentBlue transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative bg-cardBg hover:bg-gray-800 border border-gray-700 p-2.5 rounded-xl transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping text-accentBlue"></i>
+                    <span id="cart-count" class="bg-accentOrange text-white text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden py-20 lg:py-32 border-b border-gray-800/60">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accentBlue/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accentBlue/10 border border-accentBlue/30 text-accentBlue text-xs font-semibold mb-6">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Powered by Bambu Lab A1 High-Speed Printing</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+                Precision 3D Printed <span class="bg-gradient-to-r from-accentBlue to-accentOrange bg-clip-text text-transparent">Drone Parts & Tech Gear</span>
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+                Custom quadcopter frames, automotive accessories, and everyday functional tools engineered and printed right here in Helsinki, Finland.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="px-8 py-4 rounded-xl bg-accentBlue hover:bg-accentBlue/90 text-white font-semibold shadow-lg shadow-accentBlue/30 transition-all flex items-center justify-center space-x-2">
+                    <span>Explore Products</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#custom" class="px-8 py-4 rounded-xl bg-cardBg hover:bg-gray-800 border border-gray-700 text-gray-200 font-semibold transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-file-arrow-up text-accentOrange"></i>
+                    <span>Request Custom Print</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-accentOrange font-semibold text-sm uppercase tracking-wider">Catalog</span>
+                <h2 class="text-3xl font-extrabold mt-1">Featured 3D Prints</h2>
+            </div>
+            <p class="text-gray-400 text-sm mt-2 md:mt-0">Fast local shipping across Finland & easy MobilePay checkout.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Product 1 -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl overflow-hidden hover:border-accentBlue/50 transition-all flex flex-col group">
+                <div class="h-48 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                    <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Drone+Quadcopter+Frame" alt="Drone Frame" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span class="absolute top-3 left-3 bg-accentBlue/90 text-white text-xs px-2.5 py-1 rounded-lg font-bold">Drone Parts</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg text-gray-100">FPV Quadcopter Frame (5-Inch)</h3>
+                    <p class="text-gray-400 text-sm mt-2 flex-grow">Lightweight, high-durability reinforced TPU & carbon-composite print designed for extreme agility.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-2xl font-black text-white">€24.99</span>
+                        <button onclick="addToCart('FPV Quadcopter Frame', 24.99)" class="bg-accentBlue hover:bg-accentBlue/90 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md shadow-accentBlue/20 flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl overflow-hidden hover:border-accentBlue/50 transition-all flex flex-col group">
+                <div class="h-48 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                    <img src="https://placehold.co/600x400/1e293b/f97316?text=Car+Spoiler+Trim" alt="Car Spoiler" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span class="absolute top-3 left-3 bg-accentOrange/90 text-white text-xs px-2.5 py-1 rounded-lg font-bold">Car Accessories</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg text-gray-100">Universal Trunk Spoiler Lip</h3>
+                    <p class="text-gray-400 text-sm mt-2 flex-grow">Weather-resistant ASA print designed for sleek aerodynamics and custom aesthetic fitment.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-2xl font-black text-white">€45.00</span>
+                        <button onclick="addToCart('Universal Trunk Spoiler Lip', 45.00)" class="bg-accentBlue hover:bg-accentBlue/90 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md shadow-accentBlue/20 flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl overflow-hidden hover:border-accentBlue/50 transition-all flex flex-col group">
+                <div class="h-48 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                    <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Desk+Organizer" alt="Desk Organizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded-lg font-bold">Popular Gear</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg text-gray-100">Modular Tech Desk Organizer</h3>
+                    <p class="text-gray-400 text-sm mt-2 flex-grow">Keep your SD cards, cables, and tools neatly arranged with this magnetic interlocking system.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-2xl font-black text-white">€16.50</span>
+                        <button onclick="addToCart('Modular Tech Desk Organizer', 16.50)" class="bg-accentBlue hover:bg-accentBlue/90 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md shadow-accentBlue/20 flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="bg-cardBg border border-gray-800 rounded-2xl overflow-hidden hover:border-accentBlue/50 transition-all flex flex-col group">
+                <div class="h-48 bg-gray-900 relative overflow-hidden flex items-center justify-center">
+                    <img src="https://placehold.co/600x400/1e293b/f97316?text=Headphone+Stand" alt="Headphone Stand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded-lg font-bold">Popular Gear</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-bold text-lg text-gray-100">RGB-Ready Headphone Stand</h3>
+                    <p class="text-gray-400 text-sm mt-2 flex-grow">Sturdy minimalist desk stand built to protect your gaming or studio headphones.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-2xl font-black text-white">€19.99</span>
+                        <button onclick="addToCart('RGB-Ready Headphone Stand', 19.99)" class="bg-accentBlue hover:bg-accentBlue/90 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md shadow-accentBlue/20 flex items-center space-x-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="custom" class="py-20 bg-cardBg/40 border-y border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-accentBlue font-semibold text-sm uppercase tracking-wider">Custom Service</span>
+                    <h2 class="text-3xl font-extrabold mt-1">Have Your Own Design? We'll Print It.</h2>
+                    <p class="text-gray-400 mt-4 leading-relaxed">
+                        Got an STL file from Thingiverse, MakerWorld, or your own CAD software? Send us the details. We use high-precision Bambu Lab printers with various filaments (PLA, PETG, ASA, TPU) to bring your project to life quickly.
+                    </p>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-accentBlue"></i>
+                            <span>Fast quote response within 24 hours</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-accentBlue"></i>
+                            <span>Local pickup in Helsinki or shipping across Finland</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-accentBlue"></i>
+                            <span>Secure MobilePay payment option</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-cardBg border border-gray-800 p-8 rounded-3xl shadow-xl">
+                    <h3 class="text-xl font-bold mb-6">Request Custom Print Quote</h3>
+                    <form onsubmit="handleCustomQuote(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Your Name</label>
+                            <input type="text" required class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:border-accentBlue transition-colors" placeholder="Matti Meikäläinen">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Email or Phone Number</label>
+                            <input type="text" required class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:border-accentBlue transition-colors" placeholder="matti@example.com / +358...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Project Details / STL Link</label>
+                            <textarea rows="3" required class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-gray-200 focus:outline-none focus:border-accentBlue transition-colors" placeholder="Paste link or describe what you need printed..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accentOrange hover:bg-accentOrange/90 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-accentOrange/20">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 max-w-4xl mx-auto px-4 text-center">
+        <span class="text-accentBlue font-semibold text-sm uppercase tracking-wider">Aalto University Student Project</span>
+        <h2 class="text-3xl font-extrabold mt-1">About Grand Tech</h2>
+        <p class="mt-4 text-gray-400 leading-relaxed">
+            Grand Tech is an independent student micro-business founded at Aalto University in Finland. We combine engineering curiosity with high-speed 3D printing technology to offer durable drone components, automotive parts, and custom functional solutions for everyday makers and tech enthusiasts.
+        </p>
+    </section>
+
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-cardBg border border-gray-800 w-full max-w-lg rounded-3xl p-6 shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                <h3 class="text-xl font-bold flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping text-accentBlue"></i>
+                    <span>Your Cart</span>
+                </h3>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="py-4 flex-grow overflow-y-auto space-y-3">
+                <!-- Cart items injected dynamically -->
+                <p class="text-gray-400 text-center py-8">Your cart is empty.</p>
+            </div>
+
+            <div class="pt-4 border-t border-gray-800">
+                <div class="flex justify-between font-bold text-lg mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total">€0.00</span>
+                </div>
+                <button onclick="proceedToMobilePay()" class="w-full bg-gradient-to-r from-accentBlue to-accentOrange text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>Checkout via MobilePay</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-auto bg-darkBg border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Grand Tech. All rights reserved. Helsinki, Finland.</p>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="#" class="hover:text-accentBlue"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-accentBlue"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="hover:text-accentBlue"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            
+            // Brief visual notification
+            showNotification(`Added ${name} to cart!`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsEl = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            countEl.textContent = totalCount;
+
+            if (cart.length === 0) {
+                itemsEl.innerHTML = `<p class="text-gray-400 text-center py-8">Your cart is empty.</p>`;
+                totalEl.textContent = '€0.00';
+                return;
+            }
+
+            let html = '';
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                totalPrice += itemTotal;
+                html += `
+                    <div class="flex items-center justify-between bg-darkBg p-3 rounded-xl border border-gray-800">
+                        <div>
+                            <h4 class="font-semibold text-sm text-gray-200">${item.name}</h4>
+                            <p class="text-xs text-gray-400">€${item.price.toFixed(2)} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="font-bold text-accentBlue">€${itemTotal.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300 p-1">
+                                <i class="fa-solid fa-trash text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            itemsEl.innerHTML = html;
+            totalEl.textContent = `€${totalPrice.toFixed(2)}`;
+        }
+
+        function proceedToMobilePay() {
+            if (cart.length === 0) {
+                showNotification("Your cart is empty!");
+                return;
+            }
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            toggleCart();
+            
+            // Create MobilePay instructions modal or message box
+            const modalHTML = `
+                <div id="mobilepay-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div class="bg-cardBg border border-gray-800 w-full max-w-md rounded-3xl p-6 shadow-2xl text-center space-y-4">
+                        <div class="w-16 h-16 bg-accentOrange/20 text-accentOrange rounded-full flex items-center justify-center mx-auto text-2xl">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">MobilePay Payment</h3>
+                        <p class="text-gray-300 text-sm">
+                            Please send <span class="font-extrabold text-white text-lg">€${totalPrice.toFixed(2)}</span> to Grand Tech merchant number:
+                        </p>
+                        <div class="bg-darkBg p-4 rounded-xl border border-gray-700 text-xl font-mono font-bold text-accentBlue tracking-widest">
+                            +358 40 123 4567
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Include your name or order reference in the MobilePay message. We will contact you via phone/email for delivery in Finland!
+                        </p>
+                        <button onclick="closeMobilePayModal()" class="w-full bg-accentBlue hover:bg-accentBlue/90 text-white font-bold py-3 rounded-xl transition-all">
+                            I Have Sent the Payment
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            cart = [];
+            updateCartUI();
+        }
+
+        function closeMobilePayModal() {
+            const modal = document.getElementById('mobilepay-modal');
+            if (modal) modal.remove();
+            showNotification("Thank you for your order! We'll process it shortly.");
+        }
+
+        function handleCustomQuote(e) {
+            e.preventDefault();
+            showNotification("Custom quote request sent successfully! We'll reply soon.");
+            e.target.reset();
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.className = 'fixed bottom-5 right-5 z-50 bg-cardBg border border-accentBlue text-white px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3 animate-bounce';
+            notif.innerHTML = `<i class="fa-solid fa-circle-check text-accentBlue"></i><span class="text-sm font-medium">${message}</span>`;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 3500);
+        }
+    </script>
+</body>
+</html>
